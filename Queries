@@ -1,0 +1,89 @@
+Entity Integrity : Primary Key
+Referential Integrity : Foreign Key
+Domain Integrity : Check
+
+
+ SQL 
+  
+DDL Data Definition Lang : Create, Alter, Drop ,Truncate Table
+DML : Data Manipulation Lang : Insert Delete Update Select
+DCL : Data Control Lang : Grant Revoke
+TCL : Transaction Control Lang : Commit , Rollback
+
+
+
+-----------------------------------------
+create database BatchTwo
+use BatchTwo
+
+create table Emp(id int, name varchar(20), 
+dept varchar(20))
+
+insert into Emp values(5, 'Rita','Accts','Kapil')
+
+select * from Emp
+
+delete Emp where id=1
+
+update EMp set name ='Gagan' where id=1
+
+Select * from Emp where  name='Ajay'
+
+Select * from Emp where  name LIKE '%a%'
+
+
+Select * from Emp where  name LIKE '_a%'
+
+Select * from Emp where    id=1 or id=4 
+
+Select * from Emp where    id IN(1,4)
+
+Select * from Emp where    id >=1 AND id<=3
+
+Select * from Emp where    id BETWEEN  1 and 3
+
+alter table EMp add manager varchar(20)
+
+update Emp set manager ='Deepak' where id in(1,3)
+update Emp set manager ='Rajan' where id in(2,4)
+
+alter table Emp drop column dept
+
+alter table Emp  alter column dept varchar(30)
+
+Select Distinct Dept from EMp
+
+truncate table Emp
+
+sp_rename 'Emp.name'  ,'EmployeeName' ,'COLUMN'
+
+sp_rename 'Emp' ,'EmpData'
+
+
+drop table Dept
+
+create table Dept (
+id int constraint PK primary key,
+name varchar(20) unique constraint CK check(name IN ('HR','Accts','Sales')),
+manager varchar(20) not null,
+no_of_employees int check (no_of_employees between 4 and 20),
+isActive bit default 1
+) 
+
+insert into Dept values(2,'Sales','Ajay',11,1)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
